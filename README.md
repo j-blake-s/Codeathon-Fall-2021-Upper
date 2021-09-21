@@ -4,6 +4,7 @@ Repo for Codeathon Fall 2021 Upper Division
 ## Structure
 * To add a defined test case, just use `git add -f input/sampleinput`.
 * Try to follow the style listed below, however, any style is fine.
+* Add a zip of the inputs/outputs used for Hackerrank
 
 ```
 myProblem

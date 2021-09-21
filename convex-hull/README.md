@@ -1,44 +1,38 @@
 # Mapping Clusters
 
-Mr. Nim wants to know if he should open a new store. He wants to make sure he
-begins cornering his market, so he does not want to expand into new territory.
-He wants his new store to be bounded by his existing stores.
+Mr. Nim wants to surround his town with a giant rubber band(that can be used to
+contain water and fill it with water. He has the rubber band covered, and is now
+trying to figure out how much water he needs. He needs you to figure out how
+much water to pump. Remember, rubber bands do not form concavities. 
 
 # Formal Problem Statement
 
 Given a list of $n$ 2D points, $(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)$,
-determine if a point $(x,y)$ can be bounded by the polygon of some subset of points.
+determine the area in units squared that is the minimum area needed to cover all
+points without concavities.
 
 # Input
 
-Note: This is a multiple problem set input. You will receive multiple sets of
-problems. You will receive an integer, $k$, which will be the total number of
-problems to solve. For each of the $k$ problems, you will receive an integer,
-$n$, that will correspond to the number of stores in his network. These will be
-coordinates with an $x$ and a $y$ floating point separated by a space. Then a
-point that is the coordinates of the new store. And lastly a new line delimited
-list of points making up his current network.
+You will receive an integer, $n$, that will correspond to the number of stores
+in his city. These will be coordinates with an $x$ and a $y$ floating point
+separated by a space. These coordinates are a new line delimited list of points
+making up his current city buildings.
 
-```
-2
-3
-15.0 15.0
+```3
 70.0 70.0
 0.0 0.0
 0.0 70.0
-4
-80.0 80.0
-70.0 70.0
+```
+
+```4
 0.0 0.0
 0.0 70.0
 70.0 0.0
-```
+70.0 70.0```
 
 # Constraints
 
-$$1 \leq k \leq 1024$$
-$$3 \leq n \leq \text{TBD}$$
-$$-50000 \leq x,y \leq 50000$$
+$$3 \leq n \leq \text{TBD}$$ $$-50000 \leq x,y \leq 50000$$
 
 # Output
 
