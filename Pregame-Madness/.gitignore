@@ -1,0 +1,8 @@
+.vscode
+build/
+
+input/input*.txt
+!input/input0[0-2].txt
+
+output/output*.txt
+!output/output0[0-2].txt
