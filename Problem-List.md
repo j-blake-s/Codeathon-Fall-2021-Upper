@@ -1,4 +1,4 @@
 Problem List
 ============
 
-* Pregame Madness - Hunter Damron - Difficulty Easy/Medium
+* Tailgate Madness - Hunter Damron - Difficulty Easy/Medium
