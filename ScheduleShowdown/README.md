@@ -1,5 +1,11 @@
 # Schedule Showdown
 
+TODO:
+* test cases
+* test case generator
+* sample case showing edge case where one class ends at the same time another starts, which is allowed
+* Java solution
+
 Alice, a Computer Science major, is arguing with Bob, an Electrical Engineering
 major about who has the harder degree program. Their friend Eve overhears the
 argument and proposes a simple test: whichever one of them can take the most
