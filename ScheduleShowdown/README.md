@@ -1,11 +1,5 @@
 # Schedule Showdown
 
-TODO:
-* test cases
-* test case generator
-* sample case showing edge case where one class ends at the same time another starts, which is allowed
-* Java solution
-
 Alice, a Computer Science major, is arguing with Bob, an Electrical Engineering
 major about who has the harder degree program. Their friend Eve overhears the
 argument and proposes a simple test: whichever one of them can take the most
@@ -39,8 +33,8 @@ The input is subject to the following constraints:
 * Time zones don't exist
 * No really, this problem isn't about date handling, drop the `dateutil` and
   step away from the keyboard
-* $1 \leq A \leq 2^20 - 1$
-* $1 \leq B \leq 2^20 - 1$
+* $1 \leq A \leq 2^18 - 1$
+* $1 \leq B \leq 2^18 - 1$
 
 
 ## Output
