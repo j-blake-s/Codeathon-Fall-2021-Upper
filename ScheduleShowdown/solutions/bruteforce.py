@@ -5,6 +5,8 @@
 # Brute force solution to ScheduleShowdown. Runs in O((A+B)^2). Will break for
 # inputs where A or B are more than about 64 or so since it uses an int to
 # store the bit vector for what schedule indices to include or not.
+#
+# for i in $(seq 0 10) ; do python3 generator.py --min 500 --max 20000 ./cases/input/input$i.txt ./cases/output/output$i.txt python3 ./solutions/solution.py  ; done
 
 import sys
 

@@ -39,8 +39,8 @@ The input is subject to the following constraints:
 * Time zones don't exist
 * No really, this problem isn't about date handling, drop the `dateutil` and
   step away from the keyboard
-* $1 \leq A \leq 2^16$
-* $1 \leq B \leq 2^16$
+* $1 \leq A \leq 2^20 - 1$
+* $1 \leq B \leq 2^20 - 1$
 
 
 ## Output
