@@ -56,8 +56,8 @@ def main():
     print(n)
     for i in hand_order:
         j = pairs[i]
-        winner = ranking[i] > ranking[j]    
-        print("{} {} {}".format(i, j, ">" if winner else "<"))
+        winner = ranking[i] > ranking[j]
+        print("{} {} {}".format(i+1, ">" if winner else "<",  j+1))
 
 if __name__ == "__main__":
     main()

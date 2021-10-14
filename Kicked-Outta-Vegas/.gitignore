@@ -1,4 +1,6 @@
 .vscode
+*.py[ocd]
+__pycache__/
 
 input/input*.txt
 !input/input0[0-2].txt

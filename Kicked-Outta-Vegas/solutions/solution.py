@@ -68,9 +68,9 @@ def transform_first(it, transform):
 
 def main():
     n = int(input())
-    it_pairs = ((int(i), int(j), comp == ">") for i, j, comp in (input().split() for _ in range(n)))
-    for line in solve(n, it_pairs):
-        print(line)
+    it_pairs = ((int(i)-1, int(j)-1, comp == ">") for i, comp, j in (input().split() for _ in range(n)))
+    for line in sorted(solve(n, it_pairs)):
+        print(line+1)
 
 if __name__ == "__main__":
     main()
