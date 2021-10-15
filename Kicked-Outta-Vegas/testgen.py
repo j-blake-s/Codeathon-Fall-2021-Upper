@@ -18,8 +18,8 @@ def get_n(test, of_tests):
         lower, lval = threshold, value
     return None
 
-def is_derangement(p):
-    return not np.any(p == np.arange(0, p.size, dtype=p.dtype))
+def comp(ri, rj):
+    return ">" if ri > rj else "<" if ri < rj else "="
 
 def main():
     argp = ArgumentParser()
@@ -40,24 +40,18 @@ def main():
     debug("..n =", n)
     debug("..generating rankings")
     ranking = np.random.permutation(n)     # Index of card in the absolute ranking
-    debug(" ", np.argsort(ranking))
+    debug(" ", np.argsort(ranking)+1)
     debug("..generating hand order")
     hand_order = np.random.permutation(n)  # Order of first in pair
-    debug("..generating hand pairings", end="")
+    debug("..generating hand pairings")
     i = 1
     pairs = np.random.permutation(n)       # Which card is played against this card (must be a derangement)
-    while not is_derangement(pairs):
-        del pairs
-        pairs = np.random.permutation(n)
-        i += 1
-    debug(" (took {} tries)".format(i))
 
     debug("..printing pairings")
     print(n)
     for i in hand_order:
         j = pairs[i]
-        winner = ranking[i] > ranking[j]
-        print("{} {} {}".format(i+1, ">" if winner else "<",  j+1))
+        print("{} {} {}".format(i+1, comp(ranking[i], ranking[j]),  j+1))
 
 if __name__ == "__main__":
     main()

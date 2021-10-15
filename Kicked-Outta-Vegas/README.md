@@ -16,5 +16,3 @@ The first line contains an integer $n$ and all remaining lines each are of the f
 Output Format
 -------------
 With each item on a separate line, output the sorted list of cards which are most likely to win in the final pick. These are the ones which beat the most other cards (noting that if $a$ beats $b$ and $b$ beats $c$, then $a$ also beats $c$).
-
-(TODO handle cards played against themselves)

@@ -5,7 +5,7 @@ def solve(n, it_pairs):
     
     for i, j, comp in it_pairs:
         i_comp = (j, comp)
-        j_comp = (i, not comp)
+        j_comp = (i, -comp)
         comparisons[i][0 if comparisons[i][0] is None else 1] = i_comp
         comparisons[j][0 if comparisons[j][0] is None else 1] = j_comp
     # If the input is well-constructed, every cell should be populated
@@ -20,9 +20,11 @@ def solve(n, it_pairs):
     max_nodes = list(filter(lambda i: counts[i] == max_count, range(n)))
     return max_nodes
 
+comp_val = {">": 1, "<": -1, "=": 0}
+
 def explore_cycle(start, comparisons, counts):
-    is_max = lambda i: comparisons[i][0][1] and comparisons[i][1][1]       # Dominates both neighbors
-    is_min = lambda i: not (comparisons[i][0][1] or comparisons[i][1][1])  # Both neighbors dominate this node
+    is_max = lambda i: comparisons[i][0][1]>=0 and comparisons[i][1][1]>=0  # Dominates both neighbors
+    is_min = lambda i: comparisons[i][0][1]<=0 and comparisons[i][1][1]<=0  # Both neighbors dominate this node
     next_i = lambda i, prev: (comparisons[i][0][0] if comparisons[i][0][0] != prev else comparisons[i][1][0], i)  # Get the neighbor that is not prev
 
     explored = set()
@@ -42,8 +44,13 @@ def explore_cycle(start, comparisons, counts):
     for i, _ in cycle:
         explored.add(i)
         count += 1
+        if is_max(i):
+            # Store current max for the end of the segment
+            assert cur_max is None
+            cur_max = i
         if is_min(i):
             # Reset count and cur_max, storing the current value in counts
+            # If a node is both min and max, then this will store 0
             assert cur_max is not None
             
             if i == first_min and not found_cycle:
@@ -54,11 +61,6 @@ def explore_cycle(start, comparisons, counts):
 
             count = 0
             cur_max = None
-        elif is_max(i):
-            # Store current max for the end of the segment
-            assert cur_max is None
-            cur_max = i
-
     return explored
 
 def transform_first(it, transform):
@@ -68,7 +70,7 @@ def transform_first(it, transform):
 
 def main():
     n = int(input())
-    it_pairs = ((int(i)-1, int(j)-1, comp == ">") for i, comp, j in (input().split() for _ in range(n)))
+    it_pairs = ((int(i)-1, int(j)-1, comp_val[comp]) for i, comp, j in (input().split() for _ in range(n)))
     for line in sorted(solve(n, it_pairs)):
         print(line+1)
 
