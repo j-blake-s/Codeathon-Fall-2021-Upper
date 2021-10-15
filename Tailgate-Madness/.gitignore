@@ -1,5 +1,6 @@
 .vscode
 build/
+testcases.zip
 
 input/input*.txt
 !input/input0[0-2].txt
