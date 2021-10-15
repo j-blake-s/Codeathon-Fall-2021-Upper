@@ -35,6 +35,7 @@ popd
       echo $i $n
       echo $n | python3 ./mkin.py > input/input$i.txt;
       #./solutions/solutioncpp < input/input$i.txt > output/output$i.txt
+      python3 ./solutions/solution.py < input/input$i.txt > output/output$i.txt
     done <<< "$datarow"
   done
 
