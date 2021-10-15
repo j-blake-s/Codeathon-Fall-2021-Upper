@@ -1,4 +1,4 @@
-NUMSAMPLES=3
+NUMSAMPLES=4
 MAXTEST=15
 
 ZIP=testcases.zip
