@@ -21,6 +21,12 @@ def get_n(test, of_tests):
 def comp(ri, rj):
     return ">" if ri > rj else "<" if ri < rj else "="
 
+def select(*args):
+    for a in args:
+        if a is not None:
+            return a
+    return None
+
 def main():
     argp = ArgumentParser()
     argp.add_argument("test", type=int)
@@ -31,7 +37,7 @@ def main():
 
     debug = lambda *a, **kw: print(*a, **kw, file=stderr) if args.debug else None
 
-    np.random.seed(args.seed or args.test or None)
+    np.random.seed(select(args.seed, args.test))
     np.set_printoptions(threshold=20)
 
     n = get_n(args.test, args.of_tests)
