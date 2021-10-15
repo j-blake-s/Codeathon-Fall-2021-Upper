@@ -1,0 +1,10 @@
+.vscode
+*.py[ocd]
+__pycache__/
+testcases.zip
+
+input/input*.txt
+!input/input0[0-3].txt
+
+output/output*.txt
+!output/output0[0-3].txt
