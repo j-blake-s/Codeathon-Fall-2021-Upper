@@ -6,7 +6,7 @@ from operator import is_
 from sys import stderr
 import numpy as np
 
-THRESHOLDS = [(0., 10), (0.2, 20), (0.2, 1<<16), (0.7, 1<<20), (1., 1<<24)]
+THRESHOLDS = [(0., 10), (0.2, 20), (0.2, 1<<12), (0.7, 1<<16), (1., 1<<20)]
 
 def get_n(test, of_tests):
     v = test * 1./of_tests

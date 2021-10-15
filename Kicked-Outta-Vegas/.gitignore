@@ -1,6 +1,7 @@
 .vscode
 *.py[ocd]
 __pycache__/
+testcases.zip
 
 input/input*.txt
 !input/input0[0-2].txt

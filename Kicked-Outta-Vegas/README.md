@@ -10,7 +10,7 @@ Input Format
 The first line contains an integer $n$ and all remaining lines each are of the form "$i$ > $j$" or "$i$ < $j$" where $i$ and $j$ are integer card values and the comparison symbol denotes which card is higher ranked in the hidden ranking.
 
 ### Restrictions
-* $1 \leq n \leq 2^24$
+* $1 \leq n \leq 2^20$
 * $1 \leq i,j \leq n$ for each $i,j$
 
 Output Format
