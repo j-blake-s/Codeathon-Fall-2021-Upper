@@ -41,8 +41,10 @@ $$3 \leq n \leq \text{TBD}$$
 $$-50000 \leq x,y \leq 50000$$
 
 # Output
+$$0 \leq x \leq 2^31$$
 
 ```
-Yes
-No
-```
+
+# Output
+
+Output the area of containing all of the points.

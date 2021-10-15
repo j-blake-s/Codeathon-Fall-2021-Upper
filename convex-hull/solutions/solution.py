@@ -6,33 +6,25 @@
 
 from math import atan2, pi
 
-def polar_angle(p, o):
-    return atan2((p[1] - o[1]), (p[0] - o[0]))
-
-def polar_distance(p, o):
-    return (p[0] - o[0])**2 + (p[1] - o[1])**2
-
-def sub(p, q):
-    return [q[0] - p[0], q[1] - p[1]]
-
-def cross_product(p,q):
-    return (p[0] * q[1] - p[1] * q[0])
-
-def turn(p, q, r):
-    return (q[0] - p[0]) * (r[1] - p[1]) - (r[0] - p[0]) * (q[1] - p[1])
-    #return (q[0] - p[0]) * (r[1] - p[1]) - (r[0] - p[0]) * (q[1] - p[1])
-    #return (p[0] * q[1] - q[0] * p[1]) - (p[0] * r[1] - r[0] * p[1])
-
 def convex_hull(points):
+    def polar_angle(p, o):
+        return atan2((p[1] - o[1]), (p[0] - o[0]))
+
+    def polar_distance(p, o):
+        return (p[0] - o[0]) ** 2 + (p[1] - o[1]) ** 2
+
     # Determine if r is collinear or counterclockwise/clockwise
     # Any positive value is counterclockwise
+    def turn(p, q, r):
+        return (q[0] - p[0]) * (r[1] - p[1]) - (r[0] - p[0]) * (q[1] - p[1])
 
     # O(n log n)
     p = min(points, key=lambda pair: (pair[0], pair[1]))
     points.remove(p)
     # Sort by polar angle, then keep furthest
-    points = sorted(points,
-            key=lambda point: (polar_angle(point, p), -polar_distance(point, p)))
+    points = sorted(
+        points, key=lambda point: (polar_angle(point, p), -polar_distance(point, p))
+    )
     stack = [p]
     # O(n)
     for point in points:
@@ -43,11 +35,7 @@ def convex_hull(points):
 
 def area(points):
     shoelace = zip(points, points[1:] + points[:1])
-    return sum(map(
-            lambda x:
-            x[0][0]*x[1][1] -
-            x[1][0]*x[0][1],
-            shoelace))*0.5
+    return sum(map(lambda x: x[0][0] * x[1][1] - x[1][0] * x[0][1], shoelace)) * 0.5
 
 def solution(points):
     return area(convex_hull(points))
@@ -59,4 +47,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
