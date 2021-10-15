@@ -16,3 +16,22 @@ The first line contains an integer $n$ and all remaining lines each are of the f
 Output Format
 -------------
 With each item on a separate line, output the sorted list of cards which are most likely to win in the final pick. These are the ones which beat the most other cards (noting that if $a$ beats $b$ and $b$ beats $c$, then $a$ also beats $c$).
+
+Sample Explanations
+-------------------
+
+# Sample 0
+
+In this sample, 4 beats 2, 5, and 6. The main contenders are 3, which beats 9 and 1; 10, which beats 8 and 9; and 7, which beats 1 and 8. However, 4 is the only card which is known to beat three other cards.
+
+# Sample 1
+
+In this sample, 12 beats 3, 4, and 5, more than any other card in the deck.
+
+# Sample 2
+
+No explanation
+
+# Sample 3
+
+In this sample, 13 beats 1, 18, and 17 while 14 beats 2, 7, and 20. Since this is a tie, both are outputted.
