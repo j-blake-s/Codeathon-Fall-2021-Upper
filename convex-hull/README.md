@@ -1,3 +1,8 @@
+## See tests:
+
+[here](solutions/README.md)
+
+
 # Mapping Clusters
 
 Arnold needs to find the minimum area that contains the polygon created by any

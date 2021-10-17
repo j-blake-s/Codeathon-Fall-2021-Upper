@@ -44,7 +44,7 @@ def convex_hull(points):
     stack = [p]
     # O(n)
     for point in points:
-        show([p] + points, stack)
+        #show([p] + points, stack)
         while len(stack) > 1 and turn(stack[-2], stack[-1], point) <= 0:
             stack.pop()
         stack.append(point)
