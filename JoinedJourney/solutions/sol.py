@@ -15,6 +15,7 @@ def search_from_right(board, y, x, seen):
     #start_y, start_x
     if board[y][x] == "#":
         return
+    seen.add((y, x))
     fringe = deque([(y, x)])
     while len(fringe) > 0:
         cur_y, cur_x = fringe.popleft()
@@ -29,10 +30,12 @@ def search_from_right(board, y, x, seen):
 
 for y in range(y_dim):
     search_from_right(board1, y, x_dim-1, leads_to_exit1)
-# print(leads_to_exit1)    
-
+# print(leads_to_exit1)
+# print("---")
 for y in range(y_dim):
     search_from_right(board2, y, x_dim-1, leads_to_exit2)
 # print(leads_to_exit2)
-
+# points = (sorted(leads_to_exit1 ^ leads_to_exit2))
+# for p in points:
+#     print(*p)
 print(len(leads_to_exit1 ^ leads_to_exit2))

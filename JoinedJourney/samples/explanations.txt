@@ -1,0 +1,27 @@
+Here are both mazes, with the spots that lead to an exit in one, but not the other (marked with "X")
+
+```
+##..
+#X##
+#XXX
+
+##..
+..#X
+#.##
+```
+
+This gives 4 + 1 = 5
+
+
+
+Here are both mazes, with the spots that lead to an exit in one but not the other marked with "X"
+```
+#..#.
+####X
+XXXXX
+
+XXXX.
+#####
+..###
+```
+6 + 4 = 10
