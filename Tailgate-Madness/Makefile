@@ -1,6 +1,6 @@
 NUMSAMPLES=3
 MAXTEST=15
-CXXFLAGS+= -g
+CXXFLAGS+= -std=c++11
 
 ZIP=testcases.zip
 
@@ -43,7 +43,7 @@ build/%: solutions/%.cpp build
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< -o $@
 
 build/%-debug: solutions/%.cpp build
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -DDEBUG $< -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -g -DDEBUG $< -o $@
 
 build/testgen: testgen.cpp build
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< -o $@
