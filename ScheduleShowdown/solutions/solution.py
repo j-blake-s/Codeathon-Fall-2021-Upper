@@ -50,7 +50,7 @@ def GreedySchedule(s):
     X = [0]
     # Mind the translation from 1 indexing to 0 indexing.
     for i in range(1, len(s)):
-        if s[i][0] > s[X[count]][1]:
+        if s[i][0] >= s[X[count]][1]:
             count += 1
             X.append(i)
     return X
