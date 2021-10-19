@@ -1,13 +1,5 @@
 import Control.Monad (replicateM)
-import Data.List (break, sortOn)
-
-  -- TODO REMOVE BLOCK
--- import Debug.Trace
--- import Text.Printf
--- showDate :: Integer -> String
--- showDate d = printf "%02d:%02d" (d `div` 60) (d `mod` 60)
--- showDateRange (start, end) = showDate start ++ " " ++ showDate end
--- END REMOVE BLOCK
+import Data.List (break, sortOn, foldl')
 
 getInput n = replicateM n getLine
 
@@ -18,20 +10,13 @@ parseLine line = pair $ map parseDate (words line)
 
 parseDate date = 60 * read (take 2 date) + read (drop 3 date)
 
-foldOne (count, (lastEnd, scheduleBlocks)) (newStart, newEnd)
-    | newStart < lastEnd = 
-                        --    trace "X"
-                           (count, (lastEnd, scheduleBlocks))
-    | otherwise          =
-                        --    trace (showDate newStart ++ " " ++ showDate newEnd)
-                        --    trace "X"
-                           (count+1, (newEnd, (newStart, newEnd) : scheduleBlocks))
+foldOne (count, lastEnd) (newStart, newEnd)
+    | newStart < lastEnd = (count, lastEnd)
+    | otherwise          = (count+1, newEnd)
 
 solve blocks =
     let sortedBlocks = sortOn snd blocks
-    in 
-        -- traceShow (length sortedBlocks) $
-        foldl foldOne (0, (0, [])) sortedBlocks
+    in foldl' foldOne (0, 0) sortedBlocks
 
 winner alice bob
     | alice > bob = "Alice\n" ++ show alice
@@ -45,11 +30,6 @@ main = do
     bInput <- getInput (read m :: Int)
     let aBlocks = map parseLine aInput
     let bBlocks = map parseLine bInput
-    let (aScore, (_, aSchedule)) = solve aBlocks
+    let aScore = fst $ solve aBlocks
     let bScore = fst $ solve bBlocks
-    -- traceM $ unlines $ map showDateRange $ reverse aSchedule
-    -- print aBlocks
-    -- print aScore
-    -- print bBlocks
-    -- print bScore
     putStrLn $ winner aScore bScore
